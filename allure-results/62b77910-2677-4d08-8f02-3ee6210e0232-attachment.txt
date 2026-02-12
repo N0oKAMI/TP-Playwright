@@ -1,0 +1,7 @@
+⚡ Début du test E2E rapide...
+🔑 Connexion avec compte existant
+✅ Connexion réussie
+🏃 Shopping express
+✅ 2 produits ajoutés rapidement
+🚀 Checkout express
+🎉 TEST E2E RAPIDE RÉUSSI !

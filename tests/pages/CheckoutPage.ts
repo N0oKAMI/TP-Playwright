@@ -55,8 +55,8 @@ export class CheckoutPage {
         this.shippingPostalCodeInput = page.locator('[data-testid="shipping-postalcode-input"]');
         this.shippingSubmitButton = page.locator('[data-testid="shipping-submit-button"]');
         this.paymentTab = page.getByText("Paiement", { exact: true });
-        this.standardDeliveryOption = page.getByLabel(/standard/i);
-        this.expressDeliveryOption = page.getByLabel(/express/i);
+        this.standardDeliveryOption = page.locator('input[type="radio"][value*="standard"], input[type="radio"][value*="Standard"]').first();
+        this.expressDeliveryOption = page.locator('input[type="radio"][value*="express"], input[type="radio"][value*="Express"]').first();
         this.paymentCardNumberInput = page.locator('[data-testid="payment-cardnumber-input"]');
         this.paymentCardNameInput = page.locator('[data-testid="payment-cardname-input"]');
         this.paymentExpiryInput = page.locator('[data-testid="payment-expiry-input"]');
@@ -72,11 +72,13 @@ export class CheckoutPage {
     }
 
     async selectStandardDelivery() {
-        await this.standardDeliveryOption.check();
+        await this.standardDeliveryOption.waitFor({ timeout: 5000 });
+        await this.standardDeliveryOption.check({ force: true });
     }
 
     async selectExpressDelivery() {
-        await this.expressDeliveryOption.check();
+        await this.expressDeliveryOption.waitFor({ timeout: 5000 });
+        await this.expressDeliveryOption.check({ force: true });
     }
 
     async backToCart() {
@@ -84,10 +86,16 @@ export class CheckoutPage {
     }
 
     async confirmPayment(paymentData: ConfirmedPaymentData) {
+        // Attendre que les champs de paiement soient visibles
+        await this.paymentCardNumberInput.waitFor({ timeout: 10000 });
+        
         await this.paymentCardNumberInput.fill(paymentData.paymentCardNumber);
         await this.paymentCardNameInput.fill(paymentData.paymentCardName);
         await this.paymentExpiryInput.fill(paymentData.paymentExpiry);
         await this.paymentCvInput.fill(paymentData.paymentCv);
+        
+        // Attendre un peu avant de soumettre
+        await this.page.waitForTimeout(1000);
         await this.paymentSubmitButton.click();
     }
 
@@ -103,7 +111,10 @@ export class CheckoutPage {
     }
 
     async goToPaymentTab() {
+        await this.paymentTab.waitFor({ timeout: 5000 });
         await this.paymentTab.click();
+        // Attendre que l'onglet paiement soit actif
+        await this.page.waitForTimeout(2000);
     }
 
 }

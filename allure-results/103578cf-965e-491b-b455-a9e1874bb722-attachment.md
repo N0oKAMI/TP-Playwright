@@ -1,0 +1,200 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - region "Notifications (F8)":
+      - list
+    - region "Notifications alt+T"
+    - generic [ref=e3]:
+      - banner [ref=e4]:
+        - generic [ref=e6]:
+          - link "TechHub" [ref=e7] [cursor=pointer]:
+            - /url: /
+            - img [ref=e9]
+            - generic [ref=e11]: TechHub
+          - navigation [ref=e12]:
+            - link "Accueil" [ref=e13] [cursor=pointer]:
+              - /url: /
+            - link "Produits" [ref=e14] [cursor=pointer]:
+              - /url: /products
+            - link "À propos" [ref=e15] [cursor=pointer]:
+              - /url: /about
+            - link "Contact" [ref=e16] [cursor=pointer]:
+              - /url: /contact
+          - generic [ref=e17]:
+            - button [ref=e18] [cursor=pointer]:
+              - img
+            - link "3" [ref=e19] [cursor=pointer]:
+              - /url: /cart
+              - button "3" [ref=e20]:
+                - img
+                - generic [ref=e21]: "3"
+            - button [ref=e22] [cursor=pointer]:
+              - img
+      - main [ref=e23]:
+        - generic [ref=e24]:
+          - link "Retour au panier" [ref=e25] [cursor=pointer]:
+            - /url: /cart
+            - img [ref=e26]
+            - text: Retour au panier
+          - generic [ref=e28]:
+            - generic [ref=e30]:
+              - img [ref=e31]
+              - generic [ref=e36]: Livraison
+            - generic [ref=e39]:
+              - img [ref=e40]
+              - generic [ref=e42]: Paiement
+            - generic [ref=e45]:
+              - img [ref=e46]
+              - generic [ref=e48]: Confirmation
+          - generic [ref=e51]:
+            - generic [ref=e53]:
+              - heading "Adresse de livraison" [level=2] [ref=e54]
+              - generic [ref=e55]:
+                - generic [ref=e56]:
+                  - generic [ref=e57]:
+                    - text: Prénom
+                    - textbox "Prénom" [ref=e58]: Jonh
+                  - generic [ref=e59]:
+                    - text: Nom
+                    - textbox "Nom" [ref=e60]: DOE
+                - generic [ref=e61]:
+                  - text: Email
+                  - textbox "Email" [ref=e62]: jonh.doe@gmail.com
+                - generic [ref=e63]:
+                  - text: Téléphone
+                  - textbox "Téléphone" [ref=e64]
+                - generic [ref=e65]:
+                  - text: Adresse
+                  - textbox "Adresse" [ref=e66]
+                - generic [ref=e67]:
+                  - generic [ref=e68]:
+                    - text: Ville
+                    - textbox "Ville" [ref=e69]
+                  - generic [ref=e70]:
+                    - text: Code postal
+                    - textbox "Code postal" [ref=e71]
+                - button "Continuer vers le paiement" [ref=e72] [cursor=pointer]
+            - generic [ref=e74]:
+              - heading "Récapitulatif" [level=3] [ref=e75]
+              - generic [ref=e76]:
+                - generic [ref=e77]:
+                  - img "Hub USB-C 12-en-1" [ref=e79]
+                  - generic [ref=e80]:
+                    - paragraph [ref=e81]: Hub USB-C 12-en-1
+                    - paragraph [ref=e82]: "Qté: 2"
+                  - paragraph [ref=e83]: 179.98 €
+                - generic [ref=e84]:
+                  - img "Clavier Mécanique RGB" [ref=e86]
+                  - generic [ref=e87]:
+                    - paragraph [ref=e88]: Clavier Mécanique RGB
+                    - paragraph [ref=e89]: "Qté: 1"
+                  - paragraph [ref=e90]: 179.99 €
+              - generic [ref=e92]:
+                - generic [ref=e93]: Total
+                - generic [ref=e94]: 359.97 €
+      - contentinfo [ref=e95]:
+        - generic [ref=e96]:
+          - generic [ref=e97]:
+            - generic [ref=e98]:
+              - link "TechHub" [ref=e99] [cursor=pointer]:
+                - /url: /
+                - img [ref=e101]
+                - generic [ref=e103]: TechHub
+              - paragraph [ref=e104]: La technologie qui simplifie votre quotidien. Découvrez les meilleurs produits tech sélectionnés par nos experts.
+              - generic [ref=e105]:
+                - link "Facebook" [ref=e106] [cursor=pointer]:
+                  - /url: "#"
+                  - img [ref=e107]
+                - link "Twitter" [ref=e109] [cursor=pointer]:
+                  - /url: "#"
+                  - img [ref=e110]
+                - link "Instagram" [ref=e112] [cursor=pointer]:
+                  - /url: "#"
+                  - img [ref=e113]
+                - link "LinkedIn" [ref=e116] [cursor=pointer]:
+                  - /url: "#"
+                  - img [ref=e117]
+            - generic [ref=e121]:
+              - heading "Produits" [level=4] [ref=e122]
+              - list [ref=e123]:
+                - listitem [ref=e124]:
+                  - link "Accessoires" [ref=e125] [cursor=pointer]:
+                    - /url: /products?category=accessories
+                - listitem [ref=e126]:
+                  - link "Maison Connectée" [ref=e127] [cursor=pointer]:
+                    - /url: /products?category=smart-home
+                - listitem [ref=e128]:
+                  - link "Gaming" [ref=e129] [cursor=pointer]:
+                    - /url: /products?category=gaming
+                - listitem [ref=e130]:
+                  - link "Bureau" [ref=e131] [cursor=pointer]:
+                    - /url: /products?category=office
+            - generic [ref=e132]:
+              - heading "Entreprise" [level=4] [ref=e133]
+              - list [ref=e134]:
+                - listitem [ref=e135]:
+                  - link "À propos" [ref=e136] [cursor=pointer]:
+                    - /url: /about
+                - listitem [ref=e137]:
+                  - link "Carrières" [ref=e138] [cursor=pointer]:
+                    - /url: /checkout
+                - listitem [ref=e139]:
+                  - link "Presse" [ref=e140] [cursor=pointer]:
+                    - /url: /checkout
+                - listitem [ref=e141]:
+                  - link "Blog" [ref=e142] [cursor=pointer]:
+                    - /url: /checkout
+            - generic [ref=e143]:
+              - heading "Support" [level=4] [ref=e144]
+              - list [ref=e145]:
+                - listitem [ref=e146]:
+                  - link "Contact" [ref=e147] [cursor=pointer]:
+                    - /url: /contact
+                - listitem [ref=e148]:
+                  - link "FAQ" [ref=e149] [cursor=pointer]:
+                    - /url: /contact#faq
+                - listitem [ref=e150]:
+                  - link "Livraison" [ref=e151] [cursor=pointer]:
+                    - /url: /checkout
+                - listitem [ref=e152]:
+                  - link "Retours" [ref=e153] [cursor=pointer]:
+                    - /url: /checkout
+            - generic [ref=e154]:
+              - heading "Légal" [level=4] [ref=e155]
+              - list [ref=e156]:
+                - listitem [ref=e157]:
+                  - link "CGV" [ref=e158] [cursor=pointer]:
+                    - /url: /checkout
+                - listitem [ref=e159]:
+                  - link "Confidentialité" [ref=e160] [cursor=pointer]:
+                    - /url: /checkout
+                - listitem [ref=e161]:
+                  - link "Cookies" [ref=e162] [cursor=pointer]:
+                    - /url: /checkout
+                - listitem [ref=e163]:
+                  - link "Mentions légales" [ref=e164] [cursor=pointer]:
+                    - /url: /checkout
+          - generic [ref=e165]:
+            - generic [ref=e166]:
+              - link "contact@techhub.fr" [ref=e167] [cursor=pointer]:
+                - /url: mailto:contact@techhub.fr
+                - img [ref=e168]
+                - text: contact@techhub.fr
+              - link "01 23 45 67 89" [ref=e171] [cursor=pointer]:
+                - /url: tel:+33123456789
+                - img [ref=e172]
+                - text: 01 23 45 67 89
+              - generic [ref=e174]:
+                - img [ref=e175]
+                - text: Paris, France
+            - paragraph [ref=e178]: © 2026 TechHub. Tous droits réservés.
+  - complementary "Edit with Lovable" [ref=e179]:
+    - link "Edit with Lovable" [ref=e180] [cursor=pointer]:
+      - /url: https://lovable.dev/projects/acf1893c-e56c-45b8-8344-86d56a23d81c?utm_source=lovable-badge
+      - generic [ref=e181]: Edit with
+      - img [ref=e182]
+    - button "Dismiss" [ref=e187] [cursor=pointer]:
+      - img [ref=e188]
+```

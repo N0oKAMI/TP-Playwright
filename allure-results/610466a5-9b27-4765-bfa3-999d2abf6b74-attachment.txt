@@ -1,0 +1,9 @@
+⚠️ Sélection de livraison ignorée: locator.waitFor: Timeout 5000ms exceeded.
+Call log:
+  - waiting for locator('input[type="radio"][value*="standard"], input[type="radio"][value*="Standard"]').first() to be visible
+
+✅ Onglet paiement activé
+⚠️ Erreur paiement: locator.waitFor: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for locator('[data-testid="payment-cardnumber-input"]') to be visible
+
