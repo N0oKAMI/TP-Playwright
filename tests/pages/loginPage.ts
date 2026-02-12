@@ -1,4 +1,5 @@
 import { Page, Locator } from '@playwright/test';
+import { SignUpData } from './cartPage';
 
 export class LoginPage {
   readonly page: Page;
@@ -11,12 +12,12 @@ export class LoginPage {
 
   constructor(page: Page) {
     this.page = page;
-    
+
     // Champs de connexion
     this.emailInput = page.locator('[data-testid="login-email-input"]');
     this.passwordInput = page.locator('[data-testid="login-password-input"]');
     this.loginButton = page.locator('[data-testid="login-submit-button"]');
-    
+
     // Éléments informatifs
     this.title = page.getByRole('heading', { name: 'Connexion' });
     this.subtitle = page.getByText('Accédez à votre espace personnel');
@@ -66,12 +67,17 @@ export class LoginPage {
   }
 
   getErrorMessage(): Locator {
-    // Sélecteur plus spécifique pour éviter les violations strict mode
-    // En priorité, chercher le message d'erreur principal
     return this.page.locator('div.text-sm.font-semibold').filter({ hasText: 'Erreur' }).first();
   }
 
   async waitForRedirect(timeout: number = 5000) {
     await this.page.waitForURL((url) => !url.pathname.includes('/auth'), { timeout });
+  }
+
+  async FillSignUpForm(signUpData: SignUpData) {
+    await this.page.locator('[data-testid="signup-name-input"]').fill(signUpData.name);
+    await this.page.locator('[data-testid="signup-email-input"]').fill(signUpData.email);
+    await this.page.locator('[data-testid="signup-password-input"]').fill(signUpData.password);
+    await this.page.locator('[data-testid="signup-confirm-password-input"]').fill(signUpData.confirmPassword);
   }
 }

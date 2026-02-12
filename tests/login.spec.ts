@@ -1,8 +1,26 @@
+import { faker } from '@faker-js/faker';
 import { test, expect } from './pages/fixtures';
 
 test.describe('Tests de connexion', () => {
   test.beforeEach(async ({ loginPage }) => {
     await loginPage.navigateToLogin();
+  });
+
+  test('Creation d\'un compte et connexion', async ({ cartPage, loginPage }) => {
+    const mdp = faker.string.alphanumeric(12) + 'Aa1!';
+    const signUpData = {
+      name: faker.person.fullName(),
+      email: faker.internet.email(),
+      password: mdp,
+      confirmPassword: mdp,
+    };
+
+    await cartPage.navBarSignUp.click();
+    await loginPage.FillSignUpForm(signUpData);
+    await cartPage.signUpButton.click();
+    await loginPage.waitForRedirect();
+    const currentUrl = await loginPage.getCurrentUrl();
+    expect(currentUrl).not.toContain('/auth');
   });
 
   test('Afficher les éléments de la page de connexion', async ({ loginPage }) => {

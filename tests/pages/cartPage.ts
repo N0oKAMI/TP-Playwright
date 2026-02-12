@@ -1,5 +1,12 @@
 import { Page, Locator } from '@playwright/test';
 
+export interface SignUpData {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
 export class CartPage {
   readonly page: Page;
   readonly cartItems: Locator;
@@ -7,6 +14,12 @@ export class CartPage {
   readonly continueShoppingButton: Locator;
   readonly clearCartButton: Locator;
   readonly checkoutButton: Locator;
+  readonly navBarSignUp: Locator;
+  readonly nameInput: Locator;
+  readonly emailInput: Locator;
+  readonly passwordInput: Locator;
+  readonly confirmPasswordInput: Locator;
+  readonly signUpButton: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -15,6 +28,13 @@ export class CartPage {
     this.continueShoppingButton = page.locator('[data-testid="continue-shopping-button"]');
     this.clearCartButton = page.locator('[data-testid="clear-cart-button"]');
     this.checkoutButton = page.locator('[data-testid="checkout-button"]');
+    this.navBarSignUp = page.locator('[data-testid="signup-tab"]');
+    this.nameInput = page.locator('[data-testid="signup-name-input"]');
+    this.emailInput = page.locator('[data-testid="signup-email-input"]');
+    this.passwordInput = page.locator('[data-testid="signup-password-input"]');
+    this.confirmPasswordInput = page.locator('[data-testid="signup-confirm-password-input"]');
+    this.signUpButton = page.locator('[data-testid="signup-submit-button"]');
+
   }
 
   async goto() {
@@ -54,5 +74,5 @@ export class CartPage {
     return await this.emptyCartMessage.isVisible();
   }
 
-  async proceedToCheckout() {await this.checkoutButton.click(); }
+  async proceedToCheckout() { await this.checkoutButton.click(); }
 }

@@ -103,7 +103,7 @@ export class CheckoutPage {
     }
 
     async goToPaymentTab() {
-        await this.paymentTab.click();  
+        await this.paymentTab.click();
     }
 
 }
