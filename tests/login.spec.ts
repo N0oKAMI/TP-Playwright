@@ -20,7 +20,7 @@ test.describe('Tests de connexion', () => {
     await cartPage.signUpButton.click();
     await loginPage.waitForRedirect();
     const currentUrl = await loginPage.getCurrentUrl();
-    expect(currentUrl).not.toContain('/auth');
+    await expect(currentUrl).not.toContain('/auth');
   });
 
   test('Afficher les éléments de la page de connexion', async ({ loginPage }) => {
@@ -36,14 +36,14 @@ test.describe('Tests de connexion', () => {
     await loginPage.login(validEmail, validPassword);
     await loginPage.waitForRedirect();
     const currentUrl = await loginPage.getCurrentUrl();
-    expect(currentUrl).not.toContain('/auth');
+    await expect(currentUrl).not.toContain('/auth');
   });
 
   test('Connexion avec email invalide', async ({ loginPage }) => {
     await loginPage.login('email-invalide@test.com', 'password123');
     await expect(loginPage.getErrorMessage()).toBeVisible({ timeout: 5000 });
     const currentUrl = await loginPage.getCurrentUrl();
-    expect(currentUrl).toContain('/auth');
+    await expect(currentUrl).toContain('/auth');
   });
 
   test('Connexion avec mot de passe incorrect', async ({ loginPage, validEmail }) => {

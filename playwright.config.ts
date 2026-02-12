@@ -2,9 +2,15 @@ import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
 import path from 'path';
 
-// Charger le fichier .env selon l'environment
+// Charger le fichier .env seulement si il existe (pas en CI)
 const envFile = process.env.ENV || 'local';
-dotenv.config({ path: path.resolve(__dirname, `env/.env.local`) });
+const envPath = path.resolve(__dirname, `env/.env.${envFile}`);
+try {
+  dotenv.config({ path: envPath });
+} catch (error) {
+  // Ignore si le fichier n'existe pas (mode CI)
+  console.log(`Fichier d'environnement ${envPath} non trouvé, utilisation des variables système`);
+}
 
 export default defineConfig({
   testDir: './tests',

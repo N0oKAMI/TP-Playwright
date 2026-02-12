@@ -10,7 +10,7 @@ test.describe('Page Panier', () => {
     await cartWithItems.page.waitForTimeout(500);
 
     const newQuantity = await cartWithItems.getQuantity(productId);
-    expect(newQuantity).toBe(initialQuantity + 1);
+    await expect(newQuantity).toBe(initialQuantity + 1);
   });
 
   test('Diminuer la quantité d\'un produit', async ({ cartWithItems }) => {
@@ -22,7 +22,7 @@ test.describe('Page Panier', () => {
       await cartWithItems.page.waitForTimeout(500);
 
       const newQuantity = await cartWithItems.getQuantity(productId);
-      expect(newQuantity).toBe(initialQuantity - 1);
+      await expect(newQuantity).toBe(initialQuantity - 1);
     }
   });
 
@@ -34,7 +34,7 @@ test.describe('Page Panier', () => {
     await cartWithItems.page.waitForTimeout(500);
 
     const newCount = await cartWithItems.getCartItemCount();
-    expect(newCount).toBe(initialCount - 1);
+    await expect(newCount).toBe(initialCount - 1);
   });
 
   test('Vider le panier', async ({ cartWithItems }) => {
@@ -42,7 +42,7 @@ test.describe('Page Panier', () => {
     await cartWithItems.page.waitForTimeout(500);
 
     const isEmpty = await cartWithItems.isCartEmpty();
-    expect(isEmpty).toBeTruthy();
+    await expect(isEmpty).toBeTruthy();
   });
 
   test('Continuer ses achats', async ({ cartWithItems }) => {

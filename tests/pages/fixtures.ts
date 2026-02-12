@@ -73,7 +73,7 @@ export const test = base.extend<PageObjectFixtures & TestCredentials>({
     const password = process.env.PASSWORD;
     
     if (!email || !password) {
-      throw new Error('EMAIL et PASSWORD doivent être définis dans .env.local');
+      throw new Error('EMAIL et PASSWORD doivent être définis dans les variables d\'environnement');
     }
     
     await loginPage.login(email, password);
@@ -86,7 +86,7 @@ export const test = base.extend<PageObjectFixtures & TestCredentials>({
   validEmail: async ({}, use) => {
     const email = process.env.EMAIL;
     if (!email) {
-      throw new Error('EMAIL n\'est pas défini dans .env.local');
+      throw new Error('EMAIL n\'est pas défini dans les variables d\'environnement');
     }
     await use(email);
   },
@@ -94,7 +94,7 @@ export const test = base.extend<PageObjectFixtures & TestCredentials>({
   validPassword: async ({}, use) => {
     const password = process.env.PASSWORD;
     if (!password) {
-      throw new Error('PASSWORD n\'est pas défini dans .env.local');
+      throw new Error('PASSWORD n\'est pas défini dans les variables d\'environnement');
     }
     await use(password);
   },

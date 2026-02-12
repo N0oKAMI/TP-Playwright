@@ -18,6 +18,10 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
+      env:
+        EMAIL: jonh.doe@gmail.com
+        PASSWORD: C23B"n}]bz=#BXu
+        URL: https://techhubecommerce.lovable.app
       run: npx playwright test
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
