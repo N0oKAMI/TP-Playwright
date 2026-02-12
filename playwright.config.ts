@@ -4,7 +4,7 @@ import path from 'path';
 
 // Charger le fichier .env selon l'environment
 const envFile = process.env.ENV || 'local';
-dotenv.config({ path: path.resolve(__dirname, `env/.env.${envFile}`) });
+dotenv.config({ path: path.resolve(__dirname, `env/.env.local`) });
 
 export default defineConfig({
   testDir: './tests',
